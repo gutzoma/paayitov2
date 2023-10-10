@@ -22,9 +22,15 @@ body {
     display: none !important;
 }
 
-.login-section {
-    background-image: url("../src/assets/images/logo1.png");
-    background-repeat: no-repeat;
-    background-size: 550px;
-    background-position: center;
+.btn-link2 {
+    text-decoration: none !important;
+}
+
+.btn-link2:hover {
+    color: #b80000 !important;
+    text-decoration: none !important;
+}
+
+.title-tabs {
+    margin-left: 1rem !important;
 }
