@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.alert-text {
+    text-align: center;
+    background-color: #ff000096;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.disp-n {
+    display: none !important;
+}
+
+.login-section {
+    background-image: url("../src/assets/images/logo1.png");
+    background-repeat: no-repeat;
+    background-size: 550px;
+    background-position: center;
+}
