@@ -15,6 +15,17 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { AddclientComponent } from './pages/addclient/addclient.component';
+import { EditclientComponent } from './pages/editclient/editclient.component';
+import { AddcreditComponent } from './pages/addcredit/addcredit.component';
+import { EditcreditComponent } from './pages/editcredit/editcredit.component';
+import { ReportCreditsComponent } from './pages/report-credits/report-credits.component';
+import { ReportPaidComponent } from './pages/report-paid/report-paid.component';
+import { FinalizedComponent } from './pages/finalized/finalized.component';
+import { SearchComponent } from './pages/search/search.component';
+import { AddpaymentComponent } from './pages/addpayment/addpayment.component';
+import { ApproveComponent } from './pages/approve/approve.component';
+import { DisperseComponent } from './pages/disperse/disperse.component';
 
 
 @NgModule({
@@ -22,7 +33,18 @@ import { ProfileComponent } from './pages/profile/profile.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddclientComponent,
+    EditclientComponent,
+    AddcreditComponent,
+    EditcreditComponent,
+    ReportCreditsComponent,
+    ReportPaidComponent,
+    FinalizedComponent,
+    SearchComponent,
+    AddpaymentComponent,
+    ApproveComponent,
+    DisperseComponent
   ],
   imports: [
     BrowserModule,

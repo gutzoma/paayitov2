@@ -83,13 +83,44 @@
                         </a>
                         <ul id="creditos" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
                             <li class="">
-                                <a href="./#/credit">
+                                <a href="./#/addcredit">
                                     <i class="las la-minus"></i><span>Registrar</span>
                                 </a>
                             </li>
                             <li class="">
                                 <a href="./#/editcredit">
                                     <i class="las la-minus"></i><span>editar</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class=" ">
+                        <a href="#disburse" class="collapsed" data-toggle="collapse" aria-expanded="false">
+                            <svg class="svg-icon" id="p-dash6" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="4 14 10 14 10 20"></polyline>
+                                <polyline points="20 10 14 10 14 4"></polyline>
+                                <line x1="14" y1="10" x2="21" y2="3"></line>
+                                <line x1="3" y1="21" x2="10" y2="14"></line>
+                            </svg>
+                            <span class="ml-4">Desembolsos</span>
+                            <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="10 15 15 20 20 15"></polyline>
+                                <path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
+                            </svg>
+                        </a>
+                        <ul id="disburse" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
+                            <li class="">
+                                <a href="./#/approve">
+                                    <i class="las la-minus"></i><span>Aprobar</span>
+                                </a>
+                            </li>
+                            <li class="">
+                                <a href="./#/disperse">
+                                    <i class="las la-minus"></i><span>Dispersar</span>
                                 </a>
                             </li>
                         </ul>
@@ -126,29 +157,24 @@
                             </li>
                         </ul>
                     </li>
-                    <li class=" ">
-                        <a href="#finalized" class="collapsed" data-toggle="collapse" aria-expanded="false">
+                    <li class="">
+                        <a href="./#/addpayment" class="">
+                            <svg class="svg-icon" id="p-dash7" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path clip-rule="evenodd" d="M26.9648 24.2849C26.9484 25.1008 26.4772 25.6733 25.7981 25.804C25.5313 25.9298 25.2338 26 24.92 26H3.08005C1.93127 26 1 25.0587 1 23.8975V9.18008C1 8.01891 1.93127 7.07759 3.08004 7.07759H4.79675C5.01766 7.07759 5.19675 6.8985 5.19675 6.67758L5.19665 3.59183C5.19662 2.46502 6.05341 1.78789 7.13478 2.0601L24.8817 6.52747C25.6294 6.71569 26.2936 7.30816 26.6607 8.02877C26.8752 8.3595 27 8.75506 27 9.18008V23.8975C27 24.0298 26.9879 24.1593 26.9648 24.2849ZM7.60619 7.07759C7.38528 7.07759 7.2062 6.89852 7.20619 6.67761L7.20613 4.68512C7.20612 4.42461 7.45115 4.23361 7.70377 4.2972L17.9665 6.88062C18.0808 6.90938 18.06 7.07759 17.9421 7.07759H7.60619ZM24.42 9.18008C24.6961 9.18008 24.92 9.40394 24.92 9.68008V13.5H21.4999C20.4786 13.5 19.6391 13.893 19.0651 14.5388C18.5074 15.1662 18.25 15.9744 18.25 16.75C18.25 17.5255 18.5074 18.3338 19.065 18.9612C19.6391 19.607 20.4785 20 21.4999 20H24.92V23.3975C24.92 23.6737 24.6961 23.8975 24.42 23.8975H3.58004C3.3039 23.8975 3.08004 23.6737 3.08004 23.3975V9.68008C3.08004 9.40394 3.3039 9.18008 3.58004 9.18008H24.42ZM24.92 18L24.92 15.5H21.4999C21.0213 15.5 20.7359 15.6695 20.5599 15.8675C20.3676 16.0838 20.25 16.4006 20.25 16.75C20.25 17.0995 20.3676 17.4162 20.5599 17.6325C20.7358 17.8305 21.0213 18 21.4999 18H24.92Z"/></svg>
+                            <span class="ml-4">Registrar Pagos</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="./#/finalized" class="">
                             <svg class="svg-icon" id="p-dash5" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
                                 <line x1="1" y1="10" x2="23" y2="10"></line>
-                            </svg>
-                            <span class="ml-4">liberaciones</span>
-                            <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="10 15 15 20 20 15"></polyline>
-                                <path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
-                            </svg>
+                            </svg><span class="ml-4">Liberaciones</span>
                         </a>
-                        <ul id="finalized" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                            <li class="">
-                                <a href="./#/finalized">
-                                    <i class="las la-minus"></i><span>Liberaciones</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li class="">
                         <a href="./#/search" class="">
@@ -182,50 +208,9 @@
                             <span class="ml-4">Salir</span>
                         </button>
                     </li>
-                    <!-- <li class=" ">
-                        <a href="#return" class="collapsed" data-toggle="collapse" aria-expanded="false">
-                            <svg class="svg-icon" id="p-dash6" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="4 14 10 14 10 20"></polyline>
-                                <polyline points="20 10 14 10 14 4"></polyline>
-                                <line x1="14" y1="10" x2="21" y2="3"></line>
-                                <line x1="3" y1="21" x2="10" y2="14"></line>
-                            </svg>
-                            <span class="ml-4">Returns</span>
-                            <svg class="svg-icon iq-arrow-right arrow-active" width="20" height="20"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <polyline points="10 15 15 20 20 15"></polyline>
-                                <path d="M4 4h7a4 4 0 0 1 4 4v12"></path>
-                            </svg>
-                        </a>
-                        <ul id="return" class="iq-submenu collapse" data-parent="#iq-sidebar-toggle">
-                            <li class="">
-                                <a href="../backend/page-list-returns.html">
-                                    <i class="las la-minus"></i><span>List Returns</span>
-                                </a>
-                            </li>
-                            <li class="">
-                                <a href="../backend/page-add-return.html">
-                                    <i class="las la-minus"></i><span>Add Return</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li> -->
+
                 </ul>
             </nav>
-            <!-- <div id="sidebar-bottom" class="position-relative sidebar-bottom">
-                  <div class="card border-none">
-                      <div class="card-body p-0">
-                          <div class="sidebarbottom-content">
-                              <div class="image"><img src="../assets/images/layouts/side-bkg.png" class="img-fluid" alt="side-bkg"></div>
-                              <h6 class="mt-4 px-4 body-title">Get More Feature by Upgrading</h6>
-                              <button type="button" class="btn sidebar-bottom-btn mt-4">Go Premium</button>
-                          </div>
-                      </div>
-                  </div>
-              </div> -->
             <div class="p-3"></div>
         </div>
     </div>
@@ -239,7 +224,6 @@
                     </a>
                 </div>
                 <div class="name">
-                    <span>Omar Gutierrez Sanchez</span>
                 </div>
             </nav>
         </div>
