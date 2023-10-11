@@ -37,7 +37,8 @@
             "src/assets/js/table-treeview.js",
             "src/assets/js/customizer.js",
             "src/assets/js/chart-custom.js",
-            "src/assets/js/app.js"]
+            "src/assets/js/app.js",
+            "src/assets/js/scripts.js"]
           },
           "configurations": {
             "production": {

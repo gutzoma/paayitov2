@@ -7,7 +7,7 @@ declare let $: any;
   providedIn: 'root',
 })
 export class AuthenticationService {
-  private tokenKey = 'token';
+  private tokenKey = 'userData';
 
   constructor(
     private authenticationClient: AuthenticationClient,

@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Global } from './global';
-import { Cliente } from '../models/cliente';
-import { ClienteCodeudor } from '../models/codeudor';
-import { ClienteNegocio } from '../models/negocio';
+import { Cliente } from '../_models/cliente';
+import { ClienteCodeudor } from '../_models/codeudor';
+import { ClienteNegocio } from '../_models/negocio';
 
 @Injectable()
 export class ClienteService{

@@ -34,3 +34,15 @@ body {
 .title-tabs {
     margin-left: 1rem !important;
 }
+
+.select-margin{
+    margin-top: 37px;
+}
+
+.botonEnd{
+    text-align: right;
+  }
+
+.btn-size {
+    width: 12rem;
+}

@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Global } from './global';
-import { ClienteCredito } from '../models/credito';
-import { ClienteGarantia } from '../models/garantia';
-import { DataCredito } from '../models/datacredito';
+import { ClienteCredito } from '../_models/credito';
+import { ClienteGarantia } from '../_models/garantia';
+import { DataCredito } from '../_models/datacredito';
 
 @Injectable()
 export class CreditosService{

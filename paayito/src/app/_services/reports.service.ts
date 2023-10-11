@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Global } from './global';
-import { Report } from '../models/report';
+import { Report } from '../_models/report';
 
 @Injectable()
 export class ReportsService{

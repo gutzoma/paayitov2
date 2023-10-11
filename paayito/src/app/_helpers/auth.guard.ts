@@ -24,7 +24,7 @@ export class AuthGuard implements CanActivate {
     if (!this.authService.isLoggedIn()) {
       this.router.navigate(['/login']);
     }else{
-      let user = JSON.parse(localStorage.getItem('token')!);
+      let user = JSON.parse(localStorage.getItem('userData')!);
       let name= user.nombres +' '+ user.paterno +' '+ user.materno;
       $(".menu-sections").removeClass("disp-n");
       $(".user-name").removeClass("disp-n");
