@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { NativeDateAdapter, DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import { formatDate } from '@angular/common';
 import { CreditosService } from '../../_services/creditos.service';
 import { Cliente } from '../../_models/cliente';
 import { ClienteCodeudor } from '../../_models/codeudor';
@@ -34,6 +32,9 @@ export class EditclientComponent {
   public negocio!: any;
   public edociv!: any;
 
+  overlay = false;
+  public config!:any;
+  
   constructor(private _creditosservice: CreditosService,
     private _clienteservice: ClienteService,
     private _generalesservice: GeneralesService) {
@@ -47,6 +48,12 @@ export class EditclientComponent {
       , '', '', '', '', '', '', '', '');
 
     this.cliente_id = '';
+    this.config = {
+      displayKey: "name",
+      search: true,
+      searchPlaceholder:'Bucar Cliente',
+      clearOnSelection: true
+    };
   }
 
   ngOnInit(): void {
@@ -93,10 +100,11 @@ export class EditclientComponent {
           response.forEach(function (cliente: any) {
             data.push({
               'id': cliente.cliente_id,
-              'name': cliente.cliente_id + ' ' + cliente.nombres + ' ' + cliente.paterno + ' ' + cliente.materno + ' ' + cliente.curp
+              'name': cliente.cliente_id + ' / ' + cliente.nombres + ' ' + cliente.paterno + ' ' + cliente.materno + ' / ' + cliente.curp
             });
           });
           this.clientes = data;
+          console.log(this.clientes);
         }
       },
       error => {
@@ -104,6 +112,7 @@ export class EditclientComponent {
       }
     );
   }
+  
 
   getCliente(cliente: any) {
     this._creditosservice.getCliente(cliente).subscribe(

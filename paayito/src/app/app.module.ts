@@ -9,6 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { TabsModule} from 'ngx-bootstrap/tabs';
+import { SelectDropDownModule } from 'ngx-select-dropdown'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -56,7 +58,9 @@ import { DisperseComponent } from './pages/disperse/disperse.component';
     MatButtonModule,
     MatFormFieldModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
+    SelectDropDownModule,
+    TabsModule.forRoot()
   ],
   providers: [
     {

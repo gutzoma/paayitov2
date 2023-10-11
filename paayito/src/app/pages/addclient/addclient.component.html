@@ -108,28 +108,29 @@
           <div class="col-md-4">
             <div class="input-group-static">
               <label>Fecha de Nacimiento</label>
-              <input class="form-control calendar-input" name="sol_fecha_nac"
-                class="form-control" #sol_fecha_nac="ngModel" [(ngModel)]="cliente.sol_fecha_nac" disabled>
+              <input class="form-control calendar-input" name="sol_fecha_nac" class="form-control"
+                #sol_fecha_nac="ngModel" [(ngModel)]="cliente.sol_fecha_nac" disabled>
             </div>
           </div>
           <div class="col-md-8">
             <div class="row">
               <div class="col-md-3">
                 <div class="dropdown">
-                  <select required class="form-control mb-3 select-margin" name="sol_sexo" id="solSexo"
+                  <select required class="form-control mb-3 select-margin2" name="sol_sexo" id="solSexo"
                     #sol_sexo="ngModel" [(ngModel)]="cliente.sol_sexo">
                     <option value="">Sexo</option>
-                    <option *ngFor="let sexo of sexo;"  value="{{sexo.sexo_id}}">{{sexo.sexo}}</option>
+                    <option *ngFor="let sexo of sexo;" value="{{sexo.sexo_id}}">{{sexo.sexo}}</option>
                   </select>
                   <span class="col-12 error-form" *ngIf="sol_sexo.touched && !sol_sexo.valid">Campo obligatorio</span>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="dropdown">
-                  <select required class="form-control mb-3 select-margin" name="sol_edo_civ"
-                    id="soEdoCiv" #sol_edo_civ="ngModel" [(ngModel)]="cliente.sol_edo_civ">
-                    <option  value="">Estado Civil</option>
-                    <option *ngFor="let edociv of edociv;"  value="{{edociv.estado_civil_id}}">{{edociv.estado_civil}}</option>
+                  <select required class="form-control mb-3 select-margin" name="sol_edo_civ" id="soEdoCiv"
+                    #sol_edo_civ="ngModel" [(ngModel)]="cliente.sol_edo_civ">
+                    <option value="">Estado Civil</option>
+                    <option *ngFor="let edociv of edociv;" value="{{edociv.estado_civil_id}}">{{edociv.estado_civil}}
+                    </option>
                   </select>
                   <span class="col-12 error-form" *ngIf="sol_edo_civ.touched && !sol_edo_civ.valid">Campo
                     obligatorio</span>
@@ -139,8 +140,9 @@
                 <div class="dropdown">
                   <select required class="form-control mb-3 select-margin select-margin" name="sol_t_viv" id="solTviv"
                     #sol_t_viv="ngModel" [(ngModel)]="cliente.sol_t_viv">
-                    <option  value="">Tipo de vivienda</option>
-                    <option *ngFor="let vivienda of vivienda;"  value="{{vivienda.tipo_de_vivienda_id}}">{{vivienda.tipo_de_vivienda}}</option>
+                    <option value="">Tipo de vivienda</option>
+                    <option *ngFor="let vivienda of vivienda;" value="{{vivienda.tipo_de_vivienda_id}}">
+                      {{vivienda.tipo_de_vivienda}}</option>
                   </select>
                   <span class="col-12 error-form" *ngIf="sol_t_viv.touched && !sol_t_viv.valid">Campo obligatorio</span>
                 </div>
@@ -314,8 +316,8 @@
           <div class="col-md-4">
             <div class="input-group-static">
               <label>Fecha de Nacimiento</label>
-              <input class="form-control calendar-input" name="cod_fecha_nac"
-                class="form-control" #cod_fecha_nac="ngModel" [(ngModel)]="clientecodeudor.cod_fecha_nac" disabled>
+              <input class="form-control calendar-input" name="cod_fecha_nac" class="form-control"
+                #cod_fecha_nac="ngModel" [(ngModel)]="clientecodeudor.cod_fecha_nac" disabled>
             </div>
           </div>
           <div class="col-md-8">
@@ -324,18 +326,19 @@
                 <div class="dropdown">
                   <select required class="form-control mb-3 select-margin" name="cod_sexo" id="codSexo"
                     #cod_sexo="ngModel" [(ngModel)]="clientecodeudor.cod_sexo">
-                    <option  value="">Sexo</option>
-                    <option *ngFor="let sexo of sexo;"  value="{{sexo.sexo_id}}">{{sexo.sexo}}</option>
+                    <option value="">Sexo</option>
+                    <option *ngFor="let sexo of sexo;" value="{{sexo.sexo_id}}">{{sexo.sexo}}</option>
                   </select>
                   <span class="col-12 error-form" *ngIf="cod_sexo.touched && !cod_sexo.valid">Campo obligatorio</span>
                 </div>
               </div>
               <div class="col-md-4">
                 <div class="dropdown">
-                  <select required class="form-control mb-3 select-margin" name="cod_edo_civ"
-                    id="codEdoCiv" #cod_edo_civ="ngModel" [(ngModel)]="clientecodeudor.cod_edo_civ">
-                    <option  value="">Estado Civil</option>
-                    <option *ngFor="let edociv of edociv;"  value="{{edociv.estado_civil_id}}">{{edociv.estado_civil}}</option>
+                  <select required class="form-control mb-3 select-margin" name="cod_edo_civ" id="codEdoCiv"
+                    #cod_edo_civ="ngModel" [(ngModel)]="clientecodeudor.cod_edo_civ">
+                    <option value="">Estado Civil</option>
+                    <option *ngFor="let edociv of edociv;" value="{{edociv.estado_civil_id}}">{{edociv.estado_civil}}
+                    </option>
                   </select>
                   <span class="col-12 error-form" *ngIf="cod_edo_civ.touched && !cod_edo_civ.valid">Campo
                     obligatorio</span>
@@ -345,8 +348,9 @@
                 <div class="dropdown">
                   <select required class="form-control mb-3 select-margin" name="cod_t_viv" id="codTviv"
                     #cod_t_viv="ngModel" [(ngModel)]="clientecodeudor.cod_t_viv">
-                    <option  value="">Tipo de vivienda</option>
-                    <option *ngFor="let vivienda of vivienda;"  value="{{vivienda.tipo_de_vivienda_id}}">{{vivienda.tipo_de_vivienda}}</option>
+                    <option value="">Tipo de vivienda</option>
+                    <option *ngFor="let vivienda of vivienda;" value="{{vivienda.tipo_de_vivienda_id}}">
+                      {{vivienda.tipo_de_vivienda}}</option>
                   </select>
                   <span class="col-12 error-form" *ngIf="cod_t_viv.touched && !cod_t_viv.valid">Campo obligatorio</span>
                 </div>
@@ -433,8 +437,9 @@
             <div class="dropdown">
               <select required class="form-control mb-3 select-margin" name="sol_t_neg" id="solTneg"
                 #sol_t_neg="ngModel" [(ngModel)]="clientenegocio.sol_t_neg">
-                <option  value="">Tipo de negocio</option>
-                <option *ngFor="let negocio of negocio;"  value="{{negocio.tipo_de_negocio_id}}">{{negocio.tipo_de_negocio}}</option>
+                <option value="">Tipo de negocio</option>
+                <option *ngFor="let negocio of negocio;" value="{{negocio.tipo_de_negocio_id}}">
+                  {{negocio.tipo_de_negocio}}</option>
               </select>
               <span class="col-12 error-form" *ngIf="sol_t_neg.touched && !sol_t_neg.valid">Campo obligatorio</span>
             </div>
@@ -546,29 +551,32 @@
           <div class="col-md-4">
             <div class="input-group-outline my-3">
               <label class="form-label">Foto Ine</label>
-                <div class="custom-file">
-                   <input class="custom-file-input1 custom-file-input" name="img1" type="file" (change)="fileChangeEvent1($event)">
-                   <label class="custom-file-label1 custom-file-label" for="customFile">Selecciona una imagen</label>
-                </div>
+              <div class="custom-file">
+                <input class="custom-file-input1 custom-file-input" name="img1" type="file"
+                  (change)="fileChangeEvent1($event)">
+                <label class="custom-file-label1 custom-file-label" for="customFile">Selecciona una imagen</label>
+              </div>
             </div>
           </div>
           <div class="col-md-4">
             <div class="input-group-outline my-3">
               <label class="form-label">Imagen CURP</label>
-                <div class="custom-file">
-                  <input class="custom-file-input2 custom-file-input" name="img2" type="file" (change)="fileChangeEvent2($event)">
-                  <label class="custom-file-label2 custom-file-label" for="customFile">Selecciona una imagen</label>
-                </div>
+              <div class="custom-file">
+                <input class="custom-file-input2 custom-file-input" name="img2" type="file"
+                  (change)="fileChangeEvent2($event)">
+                <label class="custom-file-label2 custom-file-label" for="customFile">Selecciona una imagen</label>
+              </div>
             </div>
           </div>
           <div class="col-md-4">
-           <div class="input-group-outline my-3">
-            <label class="form-label">Imagen comprobante de domicilio</label>
+            <div class="input-group-outline my-3">
+              <label class="form-label">Imagen comprobante de domicilio</label>
               <div class="custom-file">
-                <input class="custom-file-input3 custom-file-input" name="img3" type="file" (change)="fileChangeEvent3($event)">
+                <input class="custom-file-input3 custom-file-input" name="img3" type="file"
+                  (change)="fileChangeEvent3($event)">
                 <label class="custom-file-label3 custom-file-label" for="customFile">Selecciona una imagen</label>
               </div>
-          </div>
+            </div>
           </div>
         </div>
 
@@ -576,7 +584,8 @@
           <div class="col-md-6">
           </div>
           <div class="col-md-6 botonEnd">
-            <input type="submit" value="Guardar" class="btn btn-lg btn-success btn-size" [disabled]="!formCliente.form.valid"/> 
+            <input type="submit" value="Guardar" class="btn btn-lg btn-success btn-size"
+              [disabled]="!formCliente.form.valid" />
           </div>
           <br>
         </div>

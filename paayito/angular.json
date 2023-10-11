@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/custom-theme.scss",
               "src/styles.css",
               "src/assets/css/backend.css",
