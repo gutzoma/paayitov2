@@ -29,9 +29,9 @@ export class AuthGuard implements CanActivate {
       $(".menu-sections").removeClass("disp-n");
       $(".user-name").removeClass("disp-n");
       $(".name").html(name); 
-      // if(user.rol == 3 || user.rol == 5){
-      //   $("#nivel4").addClass("disp-n");
-      // }
+      if((user.rol == 3 && user.id != 3)|| user.rol == 5 || user.id ==  7){
+        $(".nivel4").addClass("disp-n");
+      }
     }
 
     return true;

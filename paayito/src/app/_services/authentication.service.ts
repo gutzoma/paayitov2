@@ -16,7 +16,6 @@ export class AuthenticationService {
 
   public login(login:Login): void {
     this.authenticationClient.login(login).subscribe((data) => {
-      console.log();
       if (data.status === 1) {
         localStorage.setItem(this.tokenKey, JSON.stringify(data.user));
         this.router.navigate(['']);
