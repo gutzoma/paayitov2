@@ -1,1 +1,64 @@
-<p>addpayment works!</p>
+<div class="container-fluid py-">
+    <div class="row">
+        <div class="card col-lg-12 col-xs-12 position-relative z-index-2">
+            <div class="card card-plain mb-4">
+                <div class="card-body p-3">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="d-flex flex-column h-100">
+                                <h2 class="font-weight-bolder mb-0">Capturar pago</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form #formLiquidar="ngForm" (ngSubmit)="runInsertPayment(formLiquidar)" enctype="multipart/form-data">
+                <div class="col-xs-12 col-md-8">
+
+                      <ngx-select-dropdown id="search_cred_id" (change)="onSelectionChange($event)" [config]="config"
+              [options]="clientes"></ngx-select-dropdown>
+
+                  </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group-outline ">
+                            <label class="form-label">Numero de prestamo</label>
+                            <input disabled required type="text" name="prestamo_id" #prestamo_id="ngModel" [(ngModel)]="payment.prestamo_id"
+                                class="form-control">
+                            <span class="col-12 error-form" *ngIf="prestamo_id.touched && !prestamo_id.valid">Campo
+                                obligatorio</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group-static">
+                          <label class="form-label">Fecha de pago</label>
+                          <input class="form-control calendar-input" [matDatepicker]="cred" name="fecha_payment">
+                          <mat-datepicker-toggle matSuffix [for]="cred"></mat-datepicker-toggle>
+                          <mat-datepicker #cred></mat-datepicker>
+                        </div>
+                      </div>
+                      <div class="col-md-2">
+                        <div class="input-group-outline ">
+                            <label class="form-label">Cantidad</label>
+                            <input required type="text" name="cantidad" #cantidad="ngModel" [(ngModel)]="payment.cantidad"
+                                class="form-control">
+                            <span class="col-12 error-form" *ngIf="cantidad.touched && !cantidad.valid">Campo
+                                obligatorio</span>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="input-group-outline">
+                            <label class="form-label">No pago</label>
+                            <input required type="text" name="number" #number="ngModel" [(ngModel)]="payment.number"
+                                class="form-control">
+                            <span class="col-12 error-form" *ngIf="number.touched && !number.valid">Campo
+                                obligatorio</span>
+                        </div>
+                    </div>
+                    <div class="col-md-2" style="margin-top: 47px">
+                        <input type="submit" value="Confirmar" class="btn btn-lg btn-success" [disabled]="!formLiquidar.form.valid" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
