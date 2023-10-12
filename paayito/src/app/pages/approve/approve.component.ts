@@ -191,7 +191,7 @@ export class ApproveComponent {
     var data = new Array();
     this._creditosservice.getCreditos().subscribe(
       (response) => {
-        if (response) {
+        if (response != "No existen") {
           response.forEach(function (cliente: any) {
             data.push({
               id: cliente.cliente_id,
@@ -220,7 +220,6 @@ export class ApproveComponent {
     if (this.clientecredito.cred_status == "0") {
       alert("Cambia el Estado del Credito");
     } else {
-
       if (this.filesToUpload1) {
         this.clientegarantia.garantia_img = this.filesToUpload1[0].name;
       } else {
@@ -272,8 +271,8 @@ export class ApproveComponent {
               errortype.includes("curp")
             ) {
               alert("Error");
-            }else{
-              alert('Error, Intente nuevamente');
+            } else {
+              alert("Error, Intente nuevamente");
             }
           }
         );

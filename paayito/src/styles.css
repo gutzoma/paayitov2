@@ -61,3 +61,33 @@ body {
     margin-top: 5px !important;
     margin-right: 25px !important;
 }
+.Section1 {
+    color: black;
+    height: 842px;
+    width: 595px;
+    /* to centre page on screen*/
+    padding: 100px;
+}
+
+.Section1 p {
+    font-size: 12px;
+}
+
+.title-center {
+    text-align: center;
+}
+
+.Section2 {
+    color: black;
+    height: 842px;
+    width: 595px;
+    /* to centre page on screen*/
+    padding-left: 80px;
+    padding-right: 60px;
+    padding-top: 100px;
+    padding-bottom: 30px;
+}
+
+.Section2 p {
+    font-size: 12px;
+}

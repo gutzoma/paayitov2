@@ -122,7 +122,7 @@ export class EditcreditComponent {
     var data = new Array();
     this._creditosservice.getCreditos().subscribe(
       response => {
-        if (response) {
+        if (response != 'No existen') {
           response.forEach(function (cliente: any) {
             data.push({
               'id': cliente.cliente_id,
