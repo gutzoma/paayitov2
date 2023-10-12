@@ -55,3 +55,9 @@ body {
 .btn-size {
     width: 12rem;
 }
+
+.title-size{
+    font-size: 16px !important;
+    margin-top: 5px !important;
+    margin-right: 25px !important;
+}
