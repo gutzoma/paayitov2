@@ -184,7 +184,7 @@ export class EditclientComponent {
             setTimeout(() => {
               $("input[name=sol_fecha_nac]").val(response[0].fecha_de_nacimiento);
               $("input[name=cod_fecha_nac]").val(response[0].cod_fecha_de_nacimiento);
-              $("#formEdit").removeClass('disp_n');
+              $("#formEdit").removeClass('disp-n');
               $("input").select();
             }, 300);
           }
@@ -216,6 +216,8 @@ export class EditclientComponent {
         var errortype = error.error;
         if (errortype.includes('Duplicate entry') && errortype.includes('curp')){
                 alert('Curp Duplicada');
+        }else{
+          alert('Error, Intente nuevamente');
         }
 			}
 		);

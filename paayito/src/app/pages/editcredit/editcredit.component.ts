@@ -106,7 +106,7 @@ export class EditcreditComponent {
 
             setTimeout(() => {
               $("input[name=cred_fecha_aut]").val(response[0].fecha_des);
-              $("#formEdit").removeClass('disp_n');
+              $("#formEdit").removeClass('disp-n');
               $("input").select();
             }, 300);
           }
@@ -158,6 +158,8 @@ export class EditcreditComponent {
         var errortype = error.error;
         if (errortype.includes('Duplicate entry') && errortype.includes('curp')){
                 alert('Curp Duplicada');
+        }else{
+          alert('Error, Intente nuevamente');
         }
 			}
 		);

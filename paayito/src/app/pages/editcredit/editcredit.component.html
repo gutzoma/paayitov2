@@ -33,7 +33,7 @@
             </div>
           </div>
         </div>
-        <div class="disp_n" id="formEdit">
+        <div class="disp-n" id="formEdit">
 
           <div class="row">
             <div class="col-md-3">
@@ -47,7 +47,7 @@
             </div>
             <div class="col-md-3">
               <div class="dropdown">
-                <select required class="form-control mb-3 select-margin2" name="cred_plazo" id="cred_plazo"
+                <select required class="form-control mb-3 select-margin3" name="cred_plazo" id="cred_plazo"
                   #cred_plazo="ngModel" [(ngModel)]="clientecredito.cred_plazo">
                   <option value="">Plazo</option>
                   <option *ngFor="let plazo of plazos;" value="{{plazo.id_plazo}}">{{plazo.cuotas}}

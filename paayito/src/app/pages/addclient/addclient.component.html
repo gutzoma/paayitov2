@@ -116,7 +116,7 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="dropdown">
-                  <select required class="form-control mb-3 select-margin2" name="sol_sexo" id="solSexo"
+                  <select required class="form-control mb-3 select-margin" name="sol_sexo" id="solSexo"
                     #sol_sexo="ngModel" [(ngModel)]="cliente.sol_sexo">
                     <option value="">Sexo</option>
                     <option *ngFor="let sexo of sexo;" value="{{sexo.sexo_id}}">{{sexo.sexo}}</option>
@@ -435,7 +435,7 @@
         <div class="row">
           <div class="col-md-3">
             <div class="dropdown">
-              <select required class="form-control mb-3 select-margin" name="sol_t_neg" id="solTneg"
+              <select required class="form-control mb-3 select-margin3" name="sol_t_neg" id="solTneg"
                 #sol_t_neg="ngModel" [(ngModel)]="clientenegocio.sol_t_neg">
                 <option value="">Tipo de negocio</option>
                 <option *ngFor="let negocio of negocio;" value="{{negocio.tipo_de_negocio_id}}">

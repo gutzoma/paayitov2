@@ -175,7 +175,7 @@ export class ApproveComponent {
             );
 
             setTimeout(() => {
-              $("#formEdit").removeClass("disp_n");
+              $("#formEdit").removeClass("disp-n");
               $("input").select();
             }, 300);
           }
@@ -272,6 +272,8 @@ export class ApproveComponent {
               errortype.includes("curp")
             ) {
               alert("Error");
+            }else{
+              alert('Error, Intente nuevamente');
             }
           }
         );
