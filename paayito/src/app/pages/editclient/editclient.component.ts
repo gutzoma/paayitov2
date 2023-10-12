@@ -64,12 +64,6 @@ export class EditclientComponent {
     this.getTnegocio();
     this.getTedociv();
 
-
-    $('#cliente_id').change(() => {
-      this.getCliente($("#cliente_id option:selected").val());
-    });
-
-
     $("input[name=sol_curp]").blur(() => {
       var nac = $("input[name=sol_curp]").val().substr(4, 6);
       nac = this.agregarCaracter(nac, "-", 2);
@@ -89,7 +83,7 @@ export class EditclientComponent {
   onSelectionChange(event: any) {
     this.cliente_id = event.value.id;
     this.getCliente(this.cliente_id); 
-    $('#showSearch').removeAttr('style');
+
   }
 
   getClientes() {
@@ -104,7 +98,6 @@ export class EditclientComponent {
             });
           });
           this.clientes = data;
-          console.log(this.clientes);
         }
       },
       error => {
@@ -122,7 +115,6 @@ export class EditclientComponent {
           if (response) {
             $("#idCli").html(response[0].curp);
             $("#noCreCli").html(parseFloat(response[0].no_credito) + 1);
-            console.log(response);
 
             this.cliente = new Cliente(
               response[0].nombres,
@@ -204,11 +196,8 @@ export class EditclientComponent {
     );
   }
   saveClient(form: { reset: () => void; }) {
-    // var sol_fecha =  $("input[name=sol_fecha_nac]").val().split("-");
     this.cliente.sol_fecha_nac = $("input[name=sol_fecha_nac]").val();
-    // var cod_fecha =  $("input[name=cod_fecha_nac]").val().split("-");
     this.clientecodeudor.cod_fecha_nac = $("input[name=cod_fecha_nac]").val();
-    console.log(this.cliente, this.clientecodeudor, this.clientenegocio);
 
     // Actuaalizar Cliente
 		this._clienteservice.upCliente(this.cliente, this.clientecodeudor, this.clientenegocio, this.cliente_id).subscribe(
@@ -236,7 +225,6 @@ export class EditclientComponent {
     this._generalesservice.getTcliente().subscribe(
       response => {
         if (response) {
-          console.log(response);
           this.sexo = response;
         }
       },
@@ -249,7 +237,6 @@ export class EditclientComponent {
     this._generalesservice.getTvivienda().subscribe(
       response => {
         if (response) {
-          console.log(response);
           this.vivienda = response;
         }
       },
@@ -262,7 +249,6 @@ export class EditclientComponent {
     this._generalesservice.getTnegocio().subscribe(
       response => {
         if (response) {
-          console.log(response);
           this.negocio = response;
         }
       },
@@ -275,7 +261,6 @@ export class EditclientComponent {
     this._generalesservice.getTedociv().subscribe(
       response => {
         if (response) {
-          console.log(response);
           this.edociv = response;
         }
       },
