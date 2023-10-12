@@ -16,6 +16,7 @@ import { SearchComponent } from './pages/search/search.component';
 import { AddpaymentComponent } from './pages/addpayment/addpayment.component';
 import { ApproveComponent } from './pages/approve/approve.component';
 import { DisperseComponent } from './pages/disperse/disperse.component';
+import { ReportPaymentsComponent } from './pages/report-payments/report-payments.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent,canActivate: [AuthGuard] },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'addpayment', component: AddpaymentComponent,canActivate: [AuthGuard] },
   { path: 'approve', component: ApproveComponent,canActivate: [AuthGuard] },
   { path: 'disperse', component: DisperseComponent,canActivate: [AuthGuard] },
+  { path: 'report_payments', component: ReportPaymentsComponent,canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path:'**', pathMatch:'full', redirectTo:'' }
 ];

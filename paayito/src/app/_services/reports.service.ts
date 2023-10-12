@@ -29,5 +29,13 @@ export class ReportsService{
 
 		return this._http.post(this.url+'report_paying', params, {headers: headers});
 	}
+	getReportPayments(report: Report): Observable<any>{
+    
+		let params = JSON.stringify(report);
+		let headers = new HttpHeaders().set('Content-Type','application/json');
+
+		return this._http.post(this.url+'report_payments', params, {headers: headers});
+	}
+	
 
 }

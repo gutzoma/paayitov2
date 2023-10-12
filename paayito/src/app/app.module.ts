@@ -31,6 +31,7 @@ import { SearchComponent } from './pages/search/search.component';
 import { AddpaymentComponent } from './pages/addpayment/addpayment.component';
 import { ApproveComponent } from './pages/approve/approve.component';
 import { DisperseComponent } from './pages/disperse/disperse.component';
+import { ReportPaymentsComponent } from './pages/report-payments/report-payments.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { DisperseComponent } from './pages/disperse/disperse.component';
     SearchComponent,
     AddpaymentComponent,
     ApproveComponent,
-    DisperseComponent
+    DisperseComponent,
+    ReportPaymentsComponent
   ],
   imports: [
     BrowserModule,
