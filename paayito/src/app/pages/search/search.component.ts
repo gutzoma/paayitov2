@@ -95,7 +95,7 @@ public config!:any;
           'fecha': fecha_pag.toLocaleDateString('es-MX'),
           'pago': pago
         });
-        fecha_pag.setDate(fecha_pag.getDate() + 7);
+        fecha_pag.setDate(fecha_pag.getDate() + parseFloat(this.clienteInfo.plazo_days));
       }
           setTimeout(() => {
             $("#showSearch").removeClass('disp_n');

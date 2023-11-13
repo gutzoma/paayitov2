@@ -95,3 +95,8 @@ body {
 .title-tab{
     padding-left: 2rem;
 }
+
+.ngx-dropdown-list-container {
+    top: 0px !important;
+    max-height: 250px;
+}
