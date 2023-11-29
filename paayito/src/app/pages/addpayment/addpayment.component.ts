@@ -92,6 +92,8 @@ export class AddpaymentComponent {
       response => {
         this.payment.prestamo_id = response[0].prestamo_id;
         this.payment.cliente_id = cliente;
+        this.payment.p_credito = response[0].pres_cuota;
+        this.payment.p_mora = 0;
       },
       error => {
         console.log(<any>error);

@@ -94,7 +94,7 @@ export class AddclientComponent implements OnInit {
      this.clientecodeudor.cod_fecha_nac = $("input[name=cod_fecha_nac]").val();
 
     this.asesor = JSON.parse(localStorage.getItem('userData')!);
-    this.asesor = {'id':this.asesor.id};
+    this.asesor = {'id':this.asesor.id, 'sucursal':this.asesor.sucursal};
 
     this.imgs = {
       'ine':this.filesToUpload1[0].name,

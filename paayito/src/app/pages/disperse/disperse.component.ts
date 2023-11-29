@@ -49,6 +49,7 @@ export class DisperseComponent {
   public cuota: any;
   public fecha_p_final: any;
   public total_pagar: any;
+  public sucursal: any;
 
   overlay = false;
   public config!:any;
@@ -256,6 +257,7 @@ export class DisperseComponent {
             this.asesores.forEach( (asesor: any) => {
               if(this.data_credito.asesor == asesor.id){
                 $("#asesorName").html(asesor.nombres +' '+ asesor.paterno +' '+ asesor.materno);
+                this.sucursal = asesor.sucursal;
               }
             });
             
@@ -264,7 +266,6 @@ export class DisperseComponent {
             $("#NoClienteTab").html(this.data_credito.cliente_id);
             
             $(".legales").css("display", "none");
-            
 
           }
         }
@@ -288,7 +289,7 @@ export class DisperseComponent {
 
 
 this.asesor = JSON.parse(localStorage.getItem('userData')!);
-this.asesor = {'id':this.asesor.id};
+this.asesor = {'id':this.asesor.id, 'sucursal':this.sucursal};
 
 this._creditosservice.createPrest(this.data_credito, this.fechas_pagos[0], this.asesor).subscribe(
   response => {
