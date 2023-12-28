@@ -19,7 +19,7 @@ export class AddcreditComponent {
   public clienteInfo: any;
   public clientecredito: ClienteCredito;
   public save_credito: any;
-	public status!: string;
+  public status!: string;
   public plazos: any;
   public asesor!: any;
   public cred_cli_id!: any;
@@ -34,13 +34,13 @@ export class AddcreditComponent {
     this.clientecredito = new ClienteCredito('', '', '', '', ''
       , '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '','','','','','');
       
-      this.cred_cli_id = '';
-      this.config = {
-        displayKey: "name",
-        search: true,
-        searchPlaceholder:'Bucar Cliente',
-        clearOnSelection: true
-      };
+    this.cred_cli_id = '';
+    this.config = {
+      displayKey: "name",
+      search: true,
+      searchPlaceholder:'Bucar Cliente',
+      clearOnSelection: true
+    };
   }
 
   ngOnInit(): void {
@@ -51,7 +51,7 @@ export class AddcreditComponent {
 
   onSelectionChange(event: any) {
     this.cred_cli_id = event.value.id;
-    this.getCliente(this.cred_cli_id); 
+    this.getCliente(this.cred_cli_id);
   }
 
   getClientesCred() {
@@ -104,31 +104,38 @@ export class AddcreditComponent {
     );
   }
 
-  saveCredit(form: { reset: () => void; }){
-    this.asesor = JSON.parse(localStorage.getItem('userData')!);
-    this.asesor = {'id':this.asesor.id};
-
-    this.clientecredito.cred_cli_id = this.cred_cli_id;
-		this._creditosservice.saveCredit(this.clientecredito, this.asesor).subscribe(
-			response => {
-				if(response){
-          this.save_credito = response;
-          this.status = 'success';
-          alert('Registro exitoso');
-          location.reload();
-				}else{
-					this.status = 'failed';
-				}
-			},
-			error => {
-
-        var errortype = error.error;
-        if (errortype.includes('Duplicate entry') && errortype.includes('curp')){
-                alert('Ocurrio un error');
-        }else{
-          alert('Error, Intente nuevamente');
-        }
-			}
-		);
+  saveCredit(form: { reset: () => void }) {
+    this.asesor = JSON.parse(localStorage.getItem("userData")!);
+    this.asesor = { id: this.asesor.id };
+    if (this.cred_cli_id > 0) {
+      this.clientecredito.cred_cli_id = this.cred_cli_id;
+      this._creditosservice
+        .saveCredit(this.clientecredito, this.asesor)
+        .subscribe(
+          (response) => {
+            if (response) {
+              this.save_credito = response;
+              this.status = "success";
+              alert("Registro exitoso");
+              location.reload();
+            } else {
+              this.status = "failed";
+            }
+          },
+          (error) => {
+            var errortype = error.error;
+            if (
+              errortype.includes("Duplicate entry") &&
+              errortype.includes("curp")
+            ) {
+              alert("Ocurrio un error");
+            } else {
+              alert("Error, Intente nuevamente");
+            }
+          }
+        );
+    }else{
+      alert("Ocurrio un error intenta nuevamente");
+    }
   }
 }
