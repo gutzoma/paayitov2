@@ -24,11 +24,10 @@ export class SearchService{
 
 		return this._http.get(this.url+'search/'+id, {headers: headers});
 	}
-
-	getClienteSearch1(id: number): Observable<any>{
+	getClienteCreditoSearch(id: number): Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-		return this._http.get(this.url+'search1/'+id, {headers: headers});
+		return this._http.get(this.url+'search_credit/'+id, {headers: headers});
 	}
 
 }

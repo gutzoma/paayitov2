@@ -37,7 +37,7 @@ export class EditcreditComponent {
       this.config = {
         displayKey: "name",
         search: true,
-        searchPlaceholder:'Bsucar Cliente',
+        searchPlaceholder:'Buscar Cliente',
         clearOnSelection: true
       };
   }

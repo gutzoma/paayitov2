@@ -18,5 +18,10 @@ export class ProfileService{
 
 		return this._http.get(this.url+'cartera-asesor/'+id, {headers: headers});
 	}
+	getCarteraAgenda(id: number): Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+		return this._http.get(this.url+'cartera-asesor-agenda/'+id, {headers: headers});
+	}
 
 }

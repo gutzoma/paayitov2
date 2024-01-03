@@ -51,7 +51,7 @@ export class EditclientComponent {
     this.config = {
       displayKey: "name",
       search: true,
-      searchPlaceholder:'Bucar Cliente',
+      searchPlaceholder:'Buscar Cliente',
       clearOnSelection: true
     };
   }

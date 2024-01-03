@@ -30,7 +30,7 @@ public config!:any;
     this.config = {
       displayKey: "name",
       search: true,
-      searchPlaceholder:'Bsucar Cliente',
+      searchPlaceholder:'Buscar Cliente',
       clearOnSelection: true
     };
   }
@@ -44,6 +44,7 @@ public config!:any;
   onSelectionChange(event: any) {
     this.id_search = event.value.id;
     this.getCliente(this.id_search); 
+    this.getClienteCredito(this.id_search); 
     $('#showSearch').removeClass('disp-n');
 
   }
@@ -74,32 +75,50 @@ public config!:any;
         if (response) {
           
           this.clienteInfo = response[0];
-      var no_pagos = this.clienteInfo.pres_no_pagos;
-      var cuota = this.clienteInfo.pres_cuota;  
-      var pres_pagos_r = this.clienteInfo.pres_pagos_realizados;
-      var pago;      
-      var fecha_pag = this.clienteInfo.pres_fecha_ini;
-      this.datos_credito = new Array();
-          fecha_pag = fecha_pag.split("-");
-          fecha_pag = new Date (fecha_pag[0], fecha_pag[1] -1, fecha_pag[2]);
-          fecha_pag.setDate(fecha_pag.getDate());
-      for (let i = 0; i < no_pagos; i++) {
-        if(pres_pagos_r > i){
-          pago = true;
-        }else{
-          pago = false;
-        }
-        this.datos_credito.push({
-          'no': i+1,
-          'cuota': Math.round(cuota),
-          'fecha': fecha_pag.toLocaleDateString('es-MX'),
-          'pago': pago
-        });
-        fecha_pag.setDate(fecha_pag.getDate() + parseFloat(this.clienteInfo.plazo_days));
-      }
+      // var no_pagos = this.clienteInfo.pres_no_pagos;
+      // var cuota = this.clienteInfo.pres_cuota;  
+      // var pres_pagos_r = this.clienteInfo.pres_pagos_realizados;
+      // var pago;      
+      // var fecha_pag = this.clienteInfo.pres_fecha_ini;
+      // this.datos_credito = new Array();
+      //     fecha_pag = fecha_pag.split("-");
+      //     fecha_pag = new Date (fecha_pag[0], fecha_pag[1] -1, fecha_pag[2]);
+      //     fecha_pag.setDate(fecha_pag.getDate());
+      // for (let i = 0; i < no_pagos; i++) {
+      //   if(pres_pagos_r > i){
+      //     pago = true;
+      //   }else{
+      //     pago = false;
+      //   }
+      //   this.datos_credito.push({
+      //     'no': i+1,
+      //     'cuota': Math.round(cuota),
+      //     'fecha': fecha_pag.toLocaleDateString('es-MX'),
+      //     'pago': pago
+      //   });
+      //   fecha_pag.setDate(fecha_pag.getDate() + parseFloat(this.clienteInfo.plazo_days));
+      // }
           setTimeout(() => {
             $("#showSearch").removeClass('disp_n');
           }, 300);
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
+  }
+  getClienteCredito(cliente: number) {
+    this._searchservice.getClienteCreditoSearch(cliente).subscribe(
+      response => {
+        if (response != 'No existen') {
+          
+          this.datos_credito = response;
+
+        }else{
+          this.datos_credito = [{
+            no_pago: 'No', cuota: 'Disponible', fecha: '', fecha_pago: null, pagado: ''
+          }]
         }
       },
       error => {
