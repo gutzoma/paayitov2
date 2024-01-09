@@ -32,6 +32,7 @@ import { AddpaymentComponent } from './pages/addpayment/addpayment.component';
 import { ApproveComponent } from './pages/approve/approve.component';
 import { DisperseComponent } from './pages/disperse/disperse.component';
 import { ReportPaymentsComponent } from './pages/report-payments/report-payments.component';
+import { ReportPaymentsContaComponent } from './pages/report-payments-conta/report-payments-conta.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { ReportPaymentsComponent } from './pages/report-payments/report-payments
     AddpaymentComponent,
     ApproveComponent,
     DisperseComponent,
-    ReportPaymentsComponent
+    ReportPaymentsComponent,
+    ReportPaymentsContaComponent
   ],
   imports: [
     BrowserModule,
