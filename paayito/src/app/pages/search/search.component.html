@@ -281,9 +281,11 @@
                                             <div class="card shadow-lg">
                                                 <div class="card-header text-center pt-4 pb-3">
                                                     <h1 class="font-weight-bold mt-2">
-                                                         <span class="font-weight-bold mt-2 text-body">Credito: {{clienteInfo.prestamo_id}}</span>
-                                                         <span class="title-tab font-weight-bold mt-2 text-body"> Ciclo: {{clienteInfo.no_credito}}</span>
-                                                         <span class="title-tab font-weight-bold mt-2 text-body"> Monto: {{clienteInfo.pres_monto}}</span>
+                                                         <span class="font-weight-bold mt-2 text-body title-tab-custom">Credito: {{clienteInfo.prestamo_id}}</span>
+                                                         <span class="title-tab font-weight-bold mt-2 text-body title-tab-custom"> Ciclo: {{clienteInfo.no_credito}}</span>
+                                                         <span class="title-tab font-weight-bold mt-2 text-body title-tab-custom"> Monto: {{clienteInfo.pres_monto}}</span>
+                                                         <span class="title-tab font-weight-bold mt-2 text-body title-tab-custom"> T. a Pagar: {{clienteInfo.pres_total_pagar}}</span>
+                                                         <span class="title-tab font-weight-bold mt-2 text-body title-tab-custom"> Saldo: {{clienteInfo.pres_total_pagar - this.pagos_sum}}</span>
                                                     </h1>
                                                 </div>
                                                 <div class="card-body text-lg-start text-center pt-0">
@@ -302,7 +304,10 @@
                                                                     Fecha pago</th>
                                                                     <th
                                                                     class="text-center text-uppercase text-secondary font-weight-bolder ">
-                                                                    Fecha deposito</th>    
+                                                                    Fecha deposito</th>
+                                                                    <th
+                                                                    class="text-center text-uppercase text-secondary font-weight-bolder ">
+                                                                    Depositado</th>      
                                                                 <th
                                                                     class="text-center text-uppercase text-secondary font-weight-bolder opacity-7">
                                                                     Status</th>
@@ -329,9 +334,13 @@
                                                                         class="text-secondary font-weight-normal">{{datos_credito.fecha_pago}}</span>
                                                                 </td>
                                                                 <td class="align-middle text-center">
-                                                                    <span *ngIf="datos_credito.pagado == 1"
+                                                                    <span
+                                                                        class="text-secondary font-weight-normal">{{datos_credito.deposito}}</span>
+                                                                </td>
+                                                                <td class="align-middle text-center">
+                                                                    <span *ngIf="datos_credito.deposito >= datos_credito.cuota"
                                                                         class="badge badge-sm badge-success">Pagado</span>
-                                                                    <span *ngIf="datos_credito.pagado != 1"
+                                                                    <span *ngIf="datos_credito.deposito < datos_credito.cuota"
                                                                         class="badge badge-sm badge-secondary">Pendiente</span>
                                                                 </td>
                                                             </tr>

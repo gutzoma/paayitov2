@@ -19,6 +19,7 @@ export class SearchComponent {
   public save_credito: any;
 	public status!: string;
   public datos_credito!: any;
+  public pagos_sum!: any;
 
 overlay = false;
 public config!:any;
@@ -112,10 +113,15 @@ public config!:any;
     this._searchservice.getClienteCreditoSearch(cliente).subscribe(
       response => {
         if (response != 'No existen') {
-          
+
           this.datos_credito = response;
 
+          let total=0;
+          this.datos_credito.forEach(function(a:any){total += parseFloat(a.deposito);});
+          this.pagos_sum = total;
+
         }else{
+          this.pagos_sum = 0;
           this.datos_credito = [{
             no_pago: 'No', cuota: 'Disponible', fecha: '', fecha_pago: null, pagado: ''
           }]
