@@ -55,10 +55,14 @@
                     </div>
                 </div>
             </form>
+            <div class="disp-n print-report">
+                <button class="btn btn-lg btn-success lineCenter" (click)="descargar()">Descargar</button>
+            </div>
+            <br>
             <div class="row tab-profile tab-font-custom">
                 <div class="card">
                     <div class="table-responsive">
-                        <table class="table align-items-center mb-0 ">
+                        <table class="table align-items-center mb-0" id="miTabla">
                             <thead>
                                 <tr>
                                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -140,11 +144,11 @@
                                     </td>
                                     <td class="align-middle">
                                         <span *ngIf="report.p_mora > 0" class="text-xs font-weight-bold mb-0">{{(report.p_mora - (report.p_credito * .16)).toFixed(2)}}</span>
-                                        <span *ngIf="report.no_pago == 'Com'" class="text-xs font-weight-bold mb-0">{{(report.p_credito - (report.p_credito * .16)).toFixed(2)}}</span>
+                                        <span *ngIf="report.no_pago == 'Com' || report.no_pago == 'com'" class="text-xs font-weight-bold mb-0">{{(report.p_credito - (report.p_credito * .16)).toFixed(2)}}</span>
                                     </td>
                                     <td class="align-middle">
                                         <span *ngIf="report.p_mora > 0" class="text-xs font-weight-bold mb-0">{{(report.p_mora * .16).toFixed(2)}}</span>
-                                        <span *ngIf="report.no_pago == 'Com'" class="text-xs font-weight-bold mb-0">{{(report.p_credito * .16).toFixed(2)}}</span>
+                                        <span *ngIf="report.no_pago == 'Com' || report.no_pago == 'com'" class="text-xs font-weight-bold mb-0">{{(report.p_credito * .16).toFixed(2)}}</span>
                                     </td>
                                     <td class="align-middle">
                                         <span class="text-xs font-weight-bold mb-0">{{(report.monto * 1).toFixed(2)}}</span>

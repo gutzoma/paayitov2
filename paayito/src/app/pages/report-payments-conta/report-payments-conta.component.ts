@@ -4,6 +4,7 @@ import { formatDate } from '@angular/common';
 import { GeneralesService } from '../../_services/generales.service';
 import { ReportsService } from '../../_services/reports.service';
 import { Report } from '../../_models/report';
+import * as XLSX from 'xlsx';
 
 declare let $: any;
 
@@ -83,6 +84,7 @@ class PickDateAdapter extends NativeDateAdapter {
                 this.reportInfo = [{'cliente_id': 'No hay datos'}];
               }else{
                 this.reportInfo = response;
+                $(".print-report").removeClass("disp-n");
               }
             }
           },
@@ -91,5 +93,11 @@ class PickDateAdapter extends NativeDateAdapter {
           }
         );
       }
+    }
+
+    descargar(): void {
+      const tabla = document.getElementById('miTabla'); // Reemplaza 'miTabla' con el ID de tu tabla HTML
+      const workBook = XLSX.utils.table_to_book(tabla);
+      XLSX.writeFile(workBook, 'tabla.xlsx');
     }
   }
