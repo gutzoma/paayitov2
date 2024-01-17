@@ -128,13 +128,16 @@
                                         <span class="text-xs font-weight-bold mb-0">{{report.no_pago}}</span>
                                     </td>
                                     <td class="align-middle">
-                                        <span *ngIf="report.no_pago > 0" class="text-xs font-weight-bold mb-0">{{(report.p_credito * .70361).toFixed(2)}}</span>
+                                        <span *ngIf="report.no_pago != 'COM'" class="text-xs font-weight-bold mb-0">{{(report.p_credito * .70361).toFixed(2)}}</span>
+                                        <span *ngIf="report.no_pago == 'COM'" class="text-xs font-weight-bold mb-0">{{(0 * .255508).toFixed(2)}}</span>
                                     </td>
                                     <td class="align-middle">
-                                        <span *ngIf="report.no_pago > 0" class="text-xs font-weight-bold mb-0">{{(report.p_credito * .255508).toFixed(2)}}</span>
+                                        <span *ngIf="report.no_pago != 'COM'" class="text-xs font-weight-bold mb-0">{{(report.p_credito * .255508).toFixed(2)}}</span>
+                                        <span *ngIf="report.no_pago == 'COM'" class="text-xs font-weight-bold mb-0">{{(0 * .255508).toFixed(2)}}</span>
                                     </td>
                                     <td class="align-middle">
-                                        <span *ngIf="report.no_pago > 0" class="text-xs font-weight-bold mb-0">{{(report.p_credito * .040881).toFixed(2)}}</span>
+                                        <span *ngIf="report.no_pago != 'COM'" class="text-xs font-weight-bold mb-0">{{(report.p_credito * .040881).toFixed(2)}}</span>
+                                        <span *ngIf="report.no_pago == 'COM'" class="text-xs font-weight-bold mb-0">{{(0 * .255508).toFixed(2)}}</span>
                                     </td>
                                     <td class="align-middle">
                                         <span class="text-xs font-weight-bold mb-0">{{(report.monto * 1).toFixed(2)}}</span>
@@ -143,12 +146,12 @@
                                         <span *ngIf="report.p_mora > 0" class="text-xs font-weight-bold mb-0">{{(report.p_mora * 1).toFixed(2)}}</span>
                                     </td>
                                     <td class="align-middle">
-                                        <span *ngIf="report.p_mora > 0" class="text-xs font-weight-bold mb-0">{{(report.p_mora - (report.p_credito * .16)).toFixed(2)}}</span>
-                                        <span *ngIf="report.no_pago == 'Com' || report.no_pago == 'com'" class="text-xs font-weight-bold mb-0">{{(report.p_credito - (report.p_credito * .16)).toFixed(2)}}</span>
+                                        <span *ngIf="report.p_mora > 0" class="text-xs font-weight-bold mb-0">{{(report.p_mora - (report.p_mora * .16)).toFixed(2)}}</span>
+                                        <span *ngIf="report.no_pago == 'Com' || report.no_pago == 'com' || report.no_pago == 'COM'" class="text-xs font-weight-bold mb-0">{{(report.p_credito - (report.p_credito * .16)).toFixed(2)}}</span>
                                     </td>
                                     <td class="align-middle">
                                         <span *ngIf="report.p_mora > 0" class="text-xs font-weight-bold mb-0">{{(report.p_mora * .16).toFixed(2)}}</span>
-                                        <span *ngIf="report.no_pago == 'Com' || report.no_pago == 'com'" class="text-xs font-weight-bold mb-0">{{(report.p_credito * .16).toFixed(2)}}</span>
+                                        <span *ngIf="report.no_pago == 'Com' || report.no_pago == 'com' || report.no_pago == 'COM'" class="text-xs font-weight-bold mb-0">{{(report.p_credito * .16).toFixed(2)}}</span>
                                     </td>
                                     <td class="align-middle">
                                         <span class="text-xs font-weight-bold mb-0">{{(report.monto * 1).toFixed(2)}}</span>
