@@ -58,7 +58,7 @@
                     <div class="col-md-2">
                         <div class="input-group-outline ">
                             <label class="form-label">Total</label>
-                            <input required type="text" name="cantidad" #cantidad="ngModel"
+                            <input disabled required type="text" name="cantidad" #cantidad="ngModel"
                                 [(ngModel)]="payment.cantidad" class="form-control">
                             <span class="col-12 error-form" *ngIf="cantidad.touched && !cantidad.valid">Campo
                                 obligatorio</span>

@@ -4,7 +4,7 @@ import { formatDate } from '@angular/common';
 import { GeneralesService } from '../../_services/generales.service';
 import { ReportsService } from '../../_services/reports.service';
 import { Report } from '../../_models/report';
-import * as XLSX from 'xlsx';
+import * as ExcelJS from 'exceljs';
 
 declare let $: any;
 
@@ -96,8 +96,32 @@ class PickDateAdapter extends NativeDateAdapter {
     }
 
     descargar(): void {
-      const tabla = document.getElementById('miTabla'); // Reemplaza 'miTabla' con el ID de tu tabla HTML
-      const workBook = XLSX.utils.table_to_book(tabla);
-      XLSX.writeFile(workBook, 'tabla.xlsx');
+      const workbook = new ExcelJS.Workbook();
+      const worksheet = workbook.addWorksheet('Tabla');
+  
+      const table:any = document.getElementById('miTabla');
+      const rows:any = table.querySelectorAll('tr');
+      rows.forEach((row: { querySelectorAll: (arg0: string) => any[]; }) => {
+        const rowData: any[] = [];
+        row.querySelectorAll('th, td').forEach((cell: { textContent: string; }) => {
+          rowData.push(cell.textContent.trim());
+        });
+        worksheet.addRow(rowData);
+      });
+  
+      workbook.xlsx.writeBuffer().then(buffer => {
+        this.saveExcelFile(buffer, 'tabla.xlsx');
+      });
     }
+    saveExcelFile(buffer: ArrayBuffer, fileName: string): void {
+      const data = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      const url = window.URL.createObjectURL(data);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = fileName;
+      a.click();
+      window.URL.revokeObjectURL(url);
+    }
+  
+
   }

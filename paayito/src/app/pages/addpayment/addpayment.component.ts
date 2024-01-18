@@ -58,6 +58,12 @@ export class AddpaymentComponent {
 
   ngOnInit(): void {
     this.getSearch();
+    $("input[name=p_credito]").blur(function(){
+      $("input[name=cantidad]").val(parseFloat($("input[name=p_credito]").val()) + parseFloat($("input[name=p_mora]").val()));
+    });
+    $("input[name=p_mora]").blur(function(){
+      $("input[name=cantidad]").val(parseFloat($("input[name=p_credito]").val()) + parseFloat($("input[name=p_mora]").val()));
+    });
 
   }
 
@@ -94,6 +100,9 @@ export class AddpaymentComponent {
         this.payment.cliente_id = cliente;
         this.payment.p_credito = response[0].pres_cuota;
         this.payment.p_mora = 0;
+        this.payment.cantidad = response[0].pres_cuota;
+        this.payment.number = '';
+        $("input[name=fecha_payment]").val('');
       },
       error => {
         console.log(<any>error);
@@ -104,22 +113,30 @@ export class AddpaymentComponent {
 
 
   runInsertPayment(form: { reset: () => void }) {
-    var fecha_pay =  $("input[name=fecha_payment]").val().split("-");
-    this.payment.fecha_payment = fecha_pay[2]+'-'+fecha_pay[1]+'-'+fecha_pay[0];
-    this.asesor = JSON.parse(localStorage.getItem("userData")!);
-    this.asesor = this.asesor.id;
-    this.payment.asesor = this.asesor;
-    this._generalesservice.runInsertPayment(this.payment).subscribe(
-      response => {
-        if (response) {
-          console.log(response);
-          alert('Pago ingresado con exito');
-          location.reload();
+    if($("input[name=fecha_payment]").val() != ''){
+
+      var fecha_pay =  $("input[name=fecha_payment]").val().split("-");
+      this.payment.fecha_payment = fecha_pay[2]+'-'+fecha_pay[1]+'-'+fecha_pay[0];
+      this.asesor = JSON.parse(localStorage.getItem("userData")!);
+      this.asesor = this.asesor.id;
+      this.payment.asesor = this.asesor;
+      this.payment.cantidad = $("input[name=cantidad]").val();
+      this._generalesservice.runInsertPayment(this.payment).subscribe(
+        response => {
+          if (response) {
+            console.log(response);
+            alert('Pago ingresado con exito');
+            location.reload();
+          }
+        },
+        error => {
+          console.log(<any>error);
+          alert('Revisa tu informacion');
         }
-      },
-      error => {
-        console.log(<any>error);
-      }
-    );
+      );
+    }else{
+      alert('Ingresa una fecha valida');
+    }
+
   }
 }
