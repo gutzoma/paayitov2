@@ -114,7 +114,7 @@ export class AddpaymentComponent {
 
   runInsertPayment(form: { reset: () => void }) {
     if($("input[name=fecha_payment]").val() != ''){
-
+      $(".add-payment").prop('disabled', true);
       var fecha_pay =  $("input[name=fecha_payment]").val().split("-");
       this.payment.fecha_payment = fecha_pay[2]+'-'+fecha_pay[1]+'-'+fecha_pay[0];
       this.asesor = JSON.parse(localStorage.getItem("userData")!);
