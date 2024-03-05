@@ -33,6 +33,7 @@ import { ApproveComponent } from './pages/approve/approve.component';
 import { DisperseComponent } from './pages/disperse/disperse.component';
 import { ReportPaymentsComponent } from './pages/report-payments/report-payments.component';
 import { ReportPaymentsContaComponent } from './pages/report-payments-conta/report-payments-conta.component';
+import { CashboxComponent } from './pages/cashbox/cashbox.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { ReportPaymentsContaComponent } from './pages/report-payments-conta/repo
     ApproveComponent,
     DisperseComponent,
     ReportPaymentsComponent,
-    ReportPaymentsContaComponent
+    ReportPaymentsContaComponent,
+    CashboxComponent
   ],
   imports: [
     BrowserModule,
