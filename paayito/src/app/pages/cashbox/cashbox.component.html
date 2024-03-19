@@ -12,7 +12,7 @@
                     </div>
                 </div>
             </div>
-            <form #formLiquidar="ngForm" (ngSubmit)="runInsertPayment(formLiquidar)" enctype="multipart/form-data">
+            <form #formLiquidar="ngForm" (ngSubmit)="runInsertCashbox(formLiquidar)" enctype="multipart/form-data">
                 <div class="col-xs-12 col-md-8">
                     <ngx-select-dropdown id="search_cred_id" (change)="onSelectionChange($event)" [config]="config"
                         [options]="clientes"></ngx-select-dropdown>
@@ -102,7 +102,18 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-2 botonEnd">
+                    <div class="col-md-3">
+                        <div class="input-group mb-4">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <input type="checkbox" aria-label="Text input with checkbox"
+                                        class="cred_garantia" value=""  id="print_valid" name="print_valid" #print_valid="ngModel"
+                                        [(ngModel)]="payment.print_valid">
+                                </div>
+                            </div>
+                            <input disabled type="text" class="form-control" placeholder="Has Impreso el Recibo?"
+                                aria-label="checkbox" aria-describedby="basic-addon1">
+                        </div>
                         <input type="submit" value="Guardar Pago" class="btn btn-lg btn-success margin-top-cuztom"
                             [disabled]="!formLiquidar.form.valid" />
                     </div>

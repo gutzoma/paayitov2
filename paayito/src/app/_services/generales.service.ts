@@ -64,6 +64,12 @@ export class GeneralesService{
 		return this._http.post(this.url+'insert_payment', params, {headers: headers});
 	}
 	
+	runInsertCashbox(pagos:any): Observable<any>{
+		let params = JSON.stringify(pagos);
+		let headers = new HttpHeaders().set('Content-Type','application/json');
+
+		return this._http.post(this.url+'insert_cashbox', params, {headers: headers});
+	}
 	// getProjects(): Observable<any>{
 	// 	let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
