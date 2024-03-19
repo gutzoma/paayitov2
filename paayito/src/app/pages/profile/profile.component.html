@@ -109,6 +109,11 @@
                                                         <p class="text-xs font-weight-bold mb-0 ">DIAS DE ATRASO</p>
                                                     </div>
                                                 </td>
+                                                <td>
+                                                    <div class="text-center">
+                                                        <p class="text-xs font-weight-bold mb-0 ">ASESOR</p>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         </thead>
                                             <tbody >
@@ -155,6 +160,13 @@
                                                         <div class="text-center">
                                                             <p *ngIf="datos_agenda.atraso > 0" class="text-amort text-xs font-weight-bold mb-0 ">{{datos_agenda.atraso}}</p>
                                                             <p *ngIf="datos_agenda.atraso == 0" class="text-xs font-weight-bold mb-0 ">{{datos_agenda.atraso}}</p>
+                                                        </div>
+                                                    </td>
+                                                    <td class="w-30">
+                                                        <div class="d-flex px-2 py-1 align-items-center">
+                                                            <div class="ms-4">
+                                                                <p class="text-xs font-weight-bold mb-0 " style="font-size:12px">{{datos_agenda.asesor_paterno}} {{datos_agenda.asesor_materno}} {{datos_agenda.asesor_nombre}}</p>
+                                                            </div>
                                                         </div>
                                                     </td>
                                                 </tr>

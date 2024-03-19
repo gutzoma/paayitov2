@@ -136,3 +136,15 @@ body {
     padding: 5px 10px !important; 
     width: 200px !important; 
   } 
+  .margin-top-cuztom{
+    margin-top: 28px;
+  }
+  .text_recibo{
+    font-size: 14px !important;
+  }
+  .textCantidadT{
+    border: 2px solid black !important;
+  }
+  .firma_recibo{
+    height:4px;background-color:black !important;
+  }

@@ -338,9 +338,9 @@
                                                                         class="text-secondary font-weight-normal">{{datos_credito.deposito}}</span>
                                                                 </td>
                                                                 <td class="align-middle text-center">
-                                                                    <span *ngIf="datos_credito.deposito >= datos_credito.cuota"
+                                                                    <span *ngIf="datos_credito.deposito >= datos_credito.cuota || datos_credito.pagado == 1"
                                                                         class="badge badge-sm badge-success">Pagado</span>
-                                                                    <span *ngIf="datos_credito.deposito < datos_credito.cuota"
+                                                                    <span *ngIf="datos_credito.deposito < datos_credito.cuota && datos_credito.pagado == 0"
                                                                         class="badge badge-sm badge-secondary">Pendiente</span>
                                                                 </td>
                                                             </tr>
