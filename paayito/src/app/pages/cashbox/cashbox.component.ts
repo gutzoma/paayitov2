@@ -56,6 +56,7 @@ export class CashboxComponent {
   ) {
     this.payment = {};
     this.payment.payment_type = "Efectivo";
+    this.payment.place = "Oficina";
 
     this.search_cred_id = "";
     this.config = {

@@ -95,6 +95,18 @@
                                 obligatorio</span>
                         </div>
                     </div>
+                    <div class="col-md-2">
+                        <label class="form-label">Pago en</label>
+                        <div class="dropdown">
+                            <select required class="form-control mb-3" name="place" id="place"
+                                #place="ngModel" [(ngModel)]="payment.place">
+                                <option value="Oficina">Oficina</option>
+                                <option value="Campo">Campo</option>
+                            </select>
+                            <span class="col-12 error-form" *ngIf="place.touched && !place.valid">Campo
+                                obligatorio</span>
+                        </div>
+                    </div>
 
                     <div class="col-md-2 botonEnd">
                         <a class="btn btn-lg btn-success margin-top-cuztom" href="javascript:;" (click)="printPage()"><i

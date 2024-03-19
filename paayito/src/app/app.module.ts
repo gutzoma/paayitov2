@@ -34,6 +34,7 @@ import { DisperseComponent } from './pages/disperse/disperse.component';
 import { ReportPaymentsComponent } from './pages/report-payments/report-payments.component';
 import { ReportPaymentsContaComponent } from './pages/report-payments-conta/report-payments-conta.component';
 import { CashboxComponent } from './pages/cashbox/cashbox.component';
+import { ReportCashboxComponent } from './pages/report-cashbox/report-cashbox.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { CashboxComponent } from './pages/cashbox/cashbox.component';
     DisperseComponent,
     ReportPaymentsComponent,
     ReportPaymentsContaComponent,
-    CashboxComponent
+    CashboxComponent,
+    ReportCashboxComponent
   ],
   imports: [
     BrowserModule,
