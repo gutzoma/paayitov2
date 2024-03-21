@@ -1,1 +1,168 @@
-<p>report-cashbox works!</p>
+<div class="container-fluid py-">
+  <div class="row">
+    <div class="card col-lg-10 col-xs-12 position-relative z-index-2">
+      <div class="card card-plain mb-4">
+        <div class="card-body p-3">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="d-flex flex-column h-100">
+                <h2 class="font-weight-bolder mb-0">Corte de Caja</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form #formReport="ngForm" (ngSubmit)="getReportCashBox(formReport)" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="input-group-static">
+              <label>Fecha Inicial</label>
+              <input class="form-control calendar-input" [matDatepicker]="pickerI" name="f_inicial">
+              <mat-datepicker-toggle matSuffix [for]="pickerI"></mat-datepicker-toggle>
+              <mat-datepicker #pickerI></mat-datepicker>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="input-group-static">
+              <label>Fecha Final</label>
+              <input class="form-control calendar-input" [matDatepicker]="pickerF" name="f_final">
+              <mat-datepicker-toggle matSuffix [for]="pickerF"></mat-datepicker-toggle>
+              <mat-datepicker #pickerF></mat-datepicker>
+            </div>
+          </div>
+          <div class="col-md-2" style="text-align: center;">
+            <div class="dropdown">
+              <select class="form-control mb-3 select-margin" name="sucursal" #sucursal="ngModel"
+                [(ngModel)]="report.sucursal">
+                <option value="">Sucursal</option>
+                <option value="01">Amecameca</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-2 botonEnd" style="text-align: center;margin-top: 30px">
+            <input type="submit" value="Generar" class="btn btn-lg btn-success lineCenter"
+              [disabled]="!formReport.form.valid" />
+          </div>
+          <div class="totales col-md-4 row" style="display:none;">
+            <div class="col-md-3">
+              <label>Total Oficina</label><br>
+              <span class="text-xs font-weight-bold mb-0">{{t_ofi}}</span>
+            </div>
+            <div class="col-md-3">
+              <label>Total Campo</label><br>
+              <span class="text-xs font-weight-bold mb-0">{{t_cam}}</span>
+            </div>
+            <div class="col-md-3">
+              <label>Total general</label><br>
+              <span class="text-xs font-weight-bold mb-0">{{t_gen}}</span>
+            </div>
+            <div class="col-md-3">
+              <a class="btn btn-lg btn-dark margin-top-cuztom" href="javascript:;" (click)="printPage()">Imprimir</a>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="row">
+        <div class="card">
+          <div class="table-responsive">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Prestamo ID</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cliente ID</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cliente</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Monto</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fecha</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Concepto</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No pago</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Forma de Pago</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pago en</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let report of reportInfo;">
+                  <td>
+                    <div class="d-flex px-2 py-1">
+                      <div class="d-flex flex-column justify-content-center">
+                        <p class="text-xs font-weight-bold mb-0">{{report.prestamo_id}}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="align-middle text-sm">
+                    <span class="text-xs font-weight-bold mb-0">{{report.cliente_id}}</span>
+                  </td>
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0">{{report.paterno}} {{report.materno}} {{report.nombres}}
+                    </p>
+                  </td>
+                  <td class="align-middle text-sm">
+                    <span class="text-xs font-weight-bold mb-0">{{report.cantidad}}</span>
+                  </td>
+                  <td class="align-middle">
+                    <span class="text-xs font-weight-bold mb-0">{{report.fecha_pago}}</span>
+                  </td>
+                  <td class="align-middle">
+                    <span class="text-xs font-weight-bold mb-0">{{report.concepto}}</span>
+                  </td>
+                  <td class="align-middletext-sm">
+                    <span class="text-xs font-weight-bold mb-0">{{report.no_pago}}</span>
+                  </td>
+                  <td class="align-middletext-sm">
+                    <span class="text-xs font-weight-bold mb-0">{{report.tipo_pago}}</span>
+                  </td>
+                  <td class="align-middletext-sm">
+                    <span class="text-xs font-weight-bold mb-0">{{report.lugar}}</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="agrrement-section3" style="display:none;">
+    <div style="text-align: center;">
+
+      <h1 style="text-transform: uppercase;">INNOVACIONES PAAY S.A.S DE C.V</h1>
+    </div>
+    <div style="text-align: center;">
+      <div class="card">
+        <div class="">
+          <h3 style="text-transform: uppercase;">Tabla de Pagos</h3>
+          <table class="table" border="1">
+            <thead>
+              <tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="33%"
+                  align="center" height="50">
+                  Pago&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                </th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" width="34%"
+                  align="center" height="50">
+                  Cuota&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                </th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="33%"
+                  align="center" height="50">
+                  Fecha&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span class="text-secondary font-weight-normal"></span>
+                </td>
+                <td>
+                  <p class=" font-weight-bold mb-0"></p>
+                </td>
+                <td class="align-middle text-center">
+                  <span class="text-secondary font-weight-normal"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

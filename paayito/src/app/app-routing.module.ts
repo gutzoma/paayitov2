@@ -19,6 +19,7 @@ import { DisperseComponent } from './pages/disperse/disperse.component';
 import { ReportPaymentsComponent } from './pages/report-payments/report-payments.component';
 import { ReportPaymentsContaComponent } from './pages/report-payments-conta/report-payments-conta.component';
 import { CashboxComponent } from './pages/cashbox/cashbox.component';
+import { ReportCashboxComponent } from './pages/report-cashbox/report-cashbox.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent,canActivate: [AuthGuard] },
@@ -37,6 +38,7 @@ const routes: Routes = [
   { path: 'report_payments', component: ReportPaymentsComponent,canActivate: [AuthGuard] },
   { path: 'report_payments_conta', component: ReportPaymentsContaComponent,canActivate: [AuthGuard] },
   { path: 'cashbox', component: CashboxComponent,canActivate: [AuthGuard] },
+  { path: 'report_cashbox', component: ReportCashboxComponent,canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path:'**', pathMatch:'full', redirectTo:'' }
 ];
