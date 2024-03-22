@@ -62,6 +62,58 @@
           </div>
         </div>
       </form>
+      <div class="card totales" style="padding: 15px; display:none;">
+        <h3>Entrega de Efectivo</h3>
+        <div class="row efectivo">
+          <div class="col-md-1 title-center">
+            <label for=""><b>$1000</b></label>
+            <input class="form-control val1" type="number" value="0">
+          </div>
+          <div class="col-md-1 title-center">
+            <label for=""><b>$500</b></label>
+            <input class="form-control val2" type="number" value="0">
+          </div>
+          <div class="col-md-1 title-center">
+            <label for=""><b>$200</b></label>
+            <input class="form-control val3" type="number" value="0">
+          </div>
+          <div class="col-md-1 title-center">
+            <label for=""><b>$100</b></label>
+            <input class="form-control val4" type="number" value="0">
+          </div>
+          <div class="col-md-1 title-center">
+            <label for=""><b>$50</b></label>
+            <input class="form-control val5" type="number" value="0">
+          </div>
+          <div class="col-md-1 title-center">
+            <label for=""><b>$20</b></label>
+            <input class="form-control val6" type="number" value="0">
+          </div>
+          <div class="col-md-1 title-center">
+            <label for=""><b>$10</b></label>
+            <input class="form-control val7" type="number" value="0">
+          </div>
+          <div class="col-md-1 title-center">
+            <label for=""><b>$5</b></label>
+            <input class="form-control val8" type="number" value="0">
+          </div>
+          <div class="col-md-1 title-center">
+            <label for=""><b>$2</b></label>
+            <input class="form-control val9" type="number" value="0">
+          </div>
+          <div class="col-md-1 title-center">
+            <label for=""><b>$1</b></label>
+            <input class="form-control val10" type="number" value="0">
+          </div>
+          <div class="col-md-1 title-center">
+            <label for=""><b>TOTAL</b></label>
+            <input class="form-control tEfectivo" type="text">
+          </div>
+          <div class="col-md-1 title-center">
+            <button class="btn btn-lg btn-success lineCenter margin-top-cuztom" (click)="sumEfectivo()">SUM</button>
+          </div>
+        </div>
+      </div>
       <div class="row">
         <div class="card">
           <div class="table-responsive">
@@ -124,45 +176,223 @@
 
   <div id="agrrement-section3" style="display:none;">
     <div style="text-align: center;">
-
-      <h1 style="text-transform: uppercase;">INNOVACIONES PAAY S.A.S DE C.V</h1>
+      <img src="../assets/images/logo.png" class="img-fluid rounded-normal light-logo" alt="logo">
     </div>
     <div style="text-align: center;">
       <div class="card">
         <div class="">
-          <h3 style="text-transform: uppercase;">Tabla de Pagos</h3>
-          <table class="table" border="1">
+          <h3 style="text-transform: uppercase;">Corte de Caja</h3>
+          <h3 style="text-transform: uppercase;">{{fechaHoy}}</h3>
+        </div>
+        <br>
+        <div>
+          <div>
+            <h1>PAGOS RECIBIDOS EN OFICINA</h1>
+          </div>
+          <table class="table align-items-center mb-0">
             <thead>
               <tr>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="33%"
-                  align="center" height="50">
-                  Pago&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
-                </th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" width="34%"
-                  align="center" height="50">
-                  Cuota&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
-                </th>
-                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7" width="33%"
-                  align="center" height="50">
-                  Fecha&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
-                </th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Prestamo ID</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cliente ID</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cliente</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fecha</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Concepto</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Forma de Pago</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Monto</th>
               </tr>
             </thead>
             <tbody>
+              <tr *ngFor="let report of reportInfo;">
+                <div *ngIf="report.lugar == 'Oficina'">
+                  <td>
+                    <div class="d-flex px-2 py-1">
+                      <div class="d-flex flex-column justify-content-center">
+                        <p class="text-xs font-weight-bold mb-0">{{report.prestamo_id}}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="align-middle">
+                    <span class="text-xs font-weight-bold mb-0">{{report.cliente_id}}</span>
+                  </td>
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0">{{report.paterno}} {{report.materno}} {{report.nombres}}
+                    </p>
+                  </td>
+                  <td class="align-middle">
+                    <span class="text-xs font-weight-bold mb-0">{{report.fecha_pago}}</span>
+                  </td>
+                  <td class="align-middle">
+                    <span class="text-xs font-weight-bold mb-0">{{report.concepto}}</span>
+                  </td>
+                  <td class="align-middle">
+                    <span class="text-xs font-weight-bold mb-0">{{report.tipo_pago}}</span>
+                  </td>
+                  <td class="align-middle">
+                    <span class="text-xs font-weight-bold mb-0">{{report.cantidad}}</span>
+                  </td>
+                </div>
+              </tr>
               <tr>
-                <td>
-                  <span class="text-secondary font-weight-normal"></span>
-                </td>
-                <td>
-                  <p class=" font-weight-bold mb-0"></p>
-                </td>
-                <td class="align-middle text-center">
-                  <span class="text-secondary font-weight-normal"></span>
-                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b class="text-print">TOTAL</b></td>
+                <td><b class="text-print">{{t_ofi}}</b></td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <div>
+            <h1>PAGOS RECIBIDOS EN CAMPO</h1>
+          </div>
+          <table class="table align-items-center mb-0">
+            <thead>
+              <tr>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Prestamo ID</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cliente ID</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cliente</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Fecha</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Concepto</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Forma de Pago</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Monto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let report of reportInfo;">
+                <div *ngIf="report.lugar == 'Campo'">
+                  <td>
+                    <div class="d-flex px-2 py-1">
+                      <div class="d-flex flex-column justify-content-center">
+                        <p class="text-xs font-weight-bold mb-0">{{report.prestamo_id}}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="align-middle">
+                    <span class="text-xs font-weight-bold mb-0">{{report.cliente_id}}</span>
+                  </td>
+                  <td>
+                    <p class="text-xs font-weight-bold mb-0">{{report.paterno}} {{report.materno}} {{report.nombres}}
+                    </p>
+                  </td>
+                  <td class="align-middle">
+                    <span class="text-xs font-weight-bold mb-0">{{report.fecha_pago}}</span>
+                  </td>
+                  <td class="align-middle">
+                    <span class="text-xs font-weight-bold mb-0">{{report.concepto}}</span>
+                  </td>
+                  <td class="align-middle">
+                    <span class="text-xs font-weight-bold mb-0">{{report.tipo_pago}}</span>
+                  </td>
+                  <td class="align-middle">
+                    <span class="text-xs font-weight-bold mb-0">{{report.cantidad}}</span>
+                  </td>
+                </div>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b class="text-print">TOTAL</b></td>
+                <td><b class="text-print">{{t_cam}}</b></td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
+      <br>
+        <div>
+          <div>
+            <h1>Entrega de Efectivo</h1>
+          </div>
+          <table class="table mb-0">
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+                <td class="align-middle">
+                  <table class="table align-items-center mb-0">
+                    <thead>
+                      <tr>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cantidad</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Monto</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="align-middle">
+                          <span class="text-xs font-weight-bold mb-0">1</span>
+                        </td>
+                        <td class="align-middle">
+                          <span class="text-xs font-weight-bold mb-0">1000</span>
+                        </td>
+                        <td class="align-middle">
+                          <span class="text-xs font-weight-bold mb-0">1000</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="align-middle">
+                          <span class="text-xs font-weight-bold mb-0">1</span>
+                        </td>
+                        <td class="align-middle">
+                          <span class="text-xs font-weight-bold mb-0">1000</span>
+                        </td>
+                        <td class="align-middle">
+                          <span class="text-xs font-weight-bold mb-0">1000</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="align-middle">
+                  <table class="table align-items-center mb-0">
+                    <thead>
+                      <tr>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Cantidad</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Monto</th>
+                        <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="align-middle">
+                          <span class="text-xs font-weight-bold mb-0">1</span>
+                        </td>
+                        <td class="align-middle">
+                          <span class="text-xs font-weight-bold mb-0">1000</span>
+                        </td>
+                        <td class="align-middle">
+                          <span class="text-xs font-weight-bold mb-0">1000</span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="align-middle">
+                          <span class="text-xs font-weight-bold mb-0">1</span>
+                        </td>
+                        <td class="align-middle">
+                          <span class="text-xs font-weight-bold mb-0">1000</span>
+                        </td>
+                        <td class="align-middle">
+                          <span class="text-xs font-weight-bold mb-0">1000</span>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
     </div>
   </div>

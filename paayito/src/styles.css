@@ -148,3 +148,17 @@ body {
   .firma_recibo{
     height:4px;background-color:black !important;
   }
+
+ @media print {
+    body {
+      font-size: 11pt;
+      background-color: #fff;
+    }
+    table {
+      border-collapse: collapse;
+    }
+  }
+  .text-print{
+    font-size: 16px !important;
+  }
+  

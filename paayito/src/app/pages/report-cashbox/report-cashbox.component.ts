@@ -42,6 +42,7 @@ export class ReportCashboxComponent {
   public t_ofi: any;
   public t_cam: any;
   public t_gen: any;
+  public fechaHoy: any;
 
   constructor(private _generalesservice: GeneralesService, private _reportsservice: ReportsService) {
     
@@ -49,6 +50,7 @@ export class ReportCashboxComponent {
     this.t_ofi =  0;
     this.t_cam =  0;
     this.t_gen =  0;
+    this.fechaHoy = new Date().toLocaleDateString('es-ES', { weekday:"long", year:"numeric", month:"long", day:"numeric"});
    }
 
    date : any;
@@ -101,20 +103,34 @@ export class ReportCashboxComponent {
   }
 
   printPage() {
-
-
     let printContents, popupWin;
     printContents = $('#agrrement-section3').html();
     popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
     if (popupWin) {
       popupWin.document.open();
+      popupWin.document.write('<link rel="stylesheet" href="http://localhost:4200/styles.css">'); 
       popupWin.document.write(`
 				<html>
-            <body onload="window.print();window.close()" style="font-size: 13px;">${printContents}</body>
+            <body onload="window.print();window.close()" style="font-size: 10px; !important">${printContents}</body>
         </html>
       `);
       popupWin.document.close();
     }
+  }
+
+  sumEfectivo() {
+    $(".tEfectivo").val(
+      ($(".val1").val() * 1000)
+      + ($(".val2").val() * 500)
+      + ($(".val3").val() * 200)
+      + ($(".val4").val() * 100)
+      + ($(".val5").val() * 50)
+      + ($(".val6").val() * 20)
+      + ($(".val7").val() * 10)
+      + ($(".val8").val() * 5)
+      + ($(".val9").val() * 2)
+      + ($(".val10").val() * 1)
+    )
   }
 
   moneda(dato: any) {
