@@ -42,6 +42,7 @@ export class ReportCashboxComponent {
   public t_ofi: any;
   public t_cam: any;
   public t_gen: any;
+  public t_number: any;
   public fechaHoy: any;
 
   constructor(private _generalesservice: GeneralesService, private _reportsservice: ReportsService) {
@@ -50,6 +51,7 @@ export class ReportCashboxComponent {
     this.t_ofi =  0;
     this.t_cam =  0;
     this.t_gen =  0;
+    this.t_number =  0;
     this.fechaHoy = new Date().toLocaleDateString('es-ES', { weekday:"long", year:"numeric", month:"long", day:"numeric"});
    }
 
@@ -79,7 +81,6 @@ export class ReportCashboxComponent {
 
             var ofi = 0;
             var cam = 0;
-            var gen = 0;
 
             this.reportInfo.forEach( (element: any) => {
               if(element.lugar == "Oficina"){
@@ -92,6 +93,7 @@ export class ReportCashboxComponent {
             this.t_ofi = this.moneda(ofi);
             this.t_cam = this.moneda(cam);
             this.t_gen = this.moneda(ofi + cam);
+            this.t_number = ofi + cam;
           }
           $(".totales").css("display", "inherit");
         },
@@ -103,6 +105,8 @@ export class ReportCashboxComponent {
   }
 
   printPage() {
+    $(".entrega").html($(".v_entrega").val());
+    $(".recibe").html($(".v_recibe").val());
     let printContents, popupWin;
     printContents = $('#agrrement-section3').html();
     popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
@@ -119,6 +123,27 @@ export class ReportCashboxComponent {
   }
 
   sumEfectivo() {
+    $(".mil").html($(".val1").val());
+    $(".milt").html($(".val1").val() * 1000);
+    $(".quin").html($(".val2").val());
+    $(".quint").html($(".val2").val() * 500);
+    $(".dosi").html($(".val3").val());
+    $(".dosit").html($(".val3").val() * 200);
+    $(".cien").html($(".val4").val());
+    $(".cient").html($(".val4").val() * 100);
+    $(".cin").html($(".val5").val());
+    $(".cint").html($(".val5").val() * 50);
+    $(".vein").html($(".val6").val());
+    $(".veint").html($(".val6").val() * 20);
+    $(".diez").html($(".val7").val());
+    $(".diezt").html($(".val7").val() * 10);
+    $(".cinco").html($(".val8").val());
+    $(".cincot").html($(".val8").val() * 5);
+    $(".dos").html($(".val9").val());
+    $(".dost").html($(".val9").val() * 2);
+    $(".uno").html($(".val10").val());
+    $(".unot").html($(".val10").val() * 1);
+
     $(".tEfectivo").val(
       ($(".val1").val() * 1000)
       + ($(".val2").val() * 500)
@@ -131,6 +156,22 @@ export class ReportCashboxComponent {
       + ($(".val9").val() * 2)
       + ($(".val10").val() * 1)
     )
+
+    var suma = ($(".val1").val() * 1000)
+    + ($(".val2").val() * 500)
+    + ($(".val3").val() * 200)
+    + ($(".val4").val() * 100)
+    + ($(".val5").val() * 50)
+    + ($(".val6").val() * 20)
+    + ($(".val7").val() * 10)
+    + ($(".val8").val() * 5)
+    + ($(".val9").val() * 2)
+    + ($(".val10").val() * 1);
+ 
+    $(".t_efect").html( this.moneda(suma));
+    var diff = this.t_number - suma;
+    $(".difer").html(this.moneda(diff));
+
   }
 
   moneda(dato: any) {
