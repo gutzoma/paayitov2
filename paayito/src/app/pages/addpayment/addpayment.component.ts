@@ -110,8 +110,6 @@ export class AddpaymentComponent {
     );
   }
 
-
-
   runInsertPayment(form: { reset: () => void }) {
     if($("input[name=fecha_payment]").val() != ''){
       $(".add-payment").prop('disabled', true);

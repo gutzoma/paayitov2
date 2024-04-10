@@ -140,9 +140,9 @@ export class CashboxComponent {
         $(".cliente_name").html(
           response[0].nombres +
             " " +
-            response[0].materno +
+            response[0].paterno +
             " " +
-            response[0].paterno
+            response[0].materno
         );
       },
       (error) => {
