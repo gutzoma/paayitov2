@@ -18,9 +18,9 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.asesor = JSON.parse(localStorage.getItem('userData')!);
-    this.getCartera(this.asesor.id);
-    this.getCarteraAgenda(this.asesor.id);
-    this.getCarteraClientes(this.asesor.id);    
+    this.getCartera(this.asesor.cartera);
+    this.getCarteraAgenda(this.asesor.cartera);
+    this.getCarteraClientes(this.asesor.cartera);    
   }
 
   getCartera(id:any) {

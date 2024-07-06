@@ -42,6 +42,11 @@ export class GeneralesService{
 
 		return this._http.get(this.url+'asesores', {headers: headers});
 	}
+	getSucursales(): Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+		return this._http.get(this.url+'sucursales', {headers: headers});
+	}
 
 	getTplazo(): Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type','application/json');

@@ -17,7 +17,20 @@
           <h3>Solicitante</h3>
         </div>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-3"><div class="input-group-outline my-3">
+            <label class="form-label">Sucursal</label>
+                <select required class="form-control mb-3" name="sol_sucursal"
+                    #sol_sucursal="ngModel" [(ngModel)]="cliente.sol_sucursal">
+                    <option value="">Seleciona una Sucursal</option>
+                    <option *ngFor="let sucursal of sucursales;" value="{{sucursal.sucursal_id}}">
+                        {{sucursal.nombre}}
+                    </option>
+                </select>
+                <span class="col-12 error-form"
+                    *ngIf="sol_sucursal.touched && !sol_sucursal.valid">Campo obligatorio</span>
+          </div>
+        </div>
+          <div class="col-md-3">
             <div class="input-group-outline my-3">
               <label class="form-label">Nombres</label>
               <input required type="text" name="sol_nom" class="form-control" #sol_nom="ngModel"
@@ -25,7 +38,7 @@
               <span class="col-12 error-form" *ngIf="sol_nom.touched && !sol_nom.valid">Campo obligatorio</span>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="input-group-outline my-3">
               <label class="form-label">Apellido Paterno</label>
               <input required type="text" name="sol_ap_pat" class="form-control" #sol_ap_pat="ngModel"
@@ -33,7 +46,7 @@
               <span class="col-12 error-form" *ngIf="sol_ap_pat.touched && !sol_ap_pat.valid">Campo obligatorio</span>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="input-group-outline my-3">
               <label class="form-label">Apellido Materno</label>
               <input required type="text" name="sol_ap_mat" class="form-control" #sol_ap_mat="ngModel"

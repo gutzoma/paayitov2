@@ -31,6 +31,7 @@ export class AddclientComponent implements OnInit {
   public edociv!: any;
 
   public asesor!: any;
+  public sucursales!: any;
   public imgs!: any;
 
   public filesToUpload1!: Array<File>;
@@ -43,7 +44,7 @@ export class AddclientComponent implements OnInit {
     private _uploadservice: UploadService
   ) 
   {
-    this.cliente = new Cliente('','','','','','','','','','','','','','','','','','','','','','');
+    this.cliente = new Cliente('','','','','','','','','','','','','','','','','','','','','','','');
 
     this.clientecodeudor = new ClienteCodeudor('','','','',''
     ,'','','','','','','','','','','','',''
@@ -60,6 +61,7 @@ export class AddclientComponent implements OnInit {
     this.getTvivienda();
     this.getTnegocio();
     this.getTedociv();
+    this.getSucursales();
     $("input[name=sol_curp]").blur(() =>{
       var nac = $("input[name=sol_curp]").val().substr(4,6);
       nac = this.agregarCaracter(nac, "-", 2);
@@ -172,6 +174,18 @@ export class AddclientComponent implements OnInit {
         }
       },
       error => {
+        console.log(<any>error);
+      }
+    );
+  }
+  getSucursales() {
+    this._generalesservice.getSucursales().subscribe(
+      (response) => {
+        if (response) {
+          this.sucursales = response;
+        }
+      },
+      (error) => {
         console.log(<any>error);
       }
     );

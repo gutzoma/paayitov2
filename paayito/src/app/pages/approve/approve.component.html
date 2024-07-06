@@ -190,7 +190,7 @@
                                     <select required class="form-control mb-3 select-margin4" name="cred_asesor"
                                         #cred_asesor="ngModel" [(ngModel)]="clientecredito.cred_asesor">
                                         <option value="">Asesor</option>
-                                        <option *ngFor="let asesores of asesores;" value="{{asesores.id}}">
+                                        <option *ngFor="let asesores of asesores;" value="{{asesores.cartera}}">
                                             {{asesores.nombres + ' ' + asesores.paterno}}
                                         </option>
                                     </select>

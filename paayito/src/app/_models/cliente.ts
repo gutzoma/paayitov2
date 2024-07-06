@@ -1,5 +1,6 @@
 export class Cliente{
     constructor(
+        public sol_sucursal: string,
         public sol_nom: string,
         public sol_ap_pat: string,
         public sol_ap_mat: string,

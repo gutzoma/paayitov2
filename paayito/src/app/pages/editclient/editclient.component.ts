@@ -31,6 +31,7 @@ export class EditclientComponent {
   public vivienda!: any;
   public negocio!: any;
   public edociv!: any;
+  public sucursales!: any;
 
   overlay = false;
   public config!:any;
@@ -38,7 +39,7 @@ export class EditclientComponent {
   constructor(private _creditosservice: CreditosService,
     private _clienteservice: ClienteService,
     private _generalesservice: GeneralesService) {
-    this.cliente = new Cliente('', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '','');
+    this.cliente = new Cliente('','', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '','');
 
     this.clientecodeudor = new ClienteCodeudor('', '', '', '', ''
       , '', '', '', '', '', '', '', '', '', '', '', '', ''
@@ -63,6 +64,7 @@ export class EditclientComponent {
     this.getTvivienda();
     this.getTnegocio();
     this.getTedociv();
+    this.getSucursales();
 
     $("input[name=sol_curp]").blur(() => {
       var nac = $("input[name=sol_curp]").val().substr(4, 6);
@@ -117,6 +119,7 @@ export class EditclientComponent {
             $("#noCreCli").html(parseFloat(response[0].no_credito) + 1);
 
             this.cliente = new Cliente(
+              response[0].sucursal,
               response[0].nombres,
               response[0].paterno,
               response[0].materno,
@@ -267,6 +270,18 @@ export class EditclientComponent {
         }
       },
       error => {
+        console.log(<any>error);
+      }
+    );
+  }
+  getSucursales() {
+    this._generalesservice.getSucursales().subscribe(
+      (response) => {
+        if (response) {
+          this.sucursales = response;
+        }
+      },
+      (error) => {
         console.log(<any>error);
       }
     );

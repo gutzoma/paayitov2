@@ -154,6 +154,7 @@ export class CashboxComponent {
   runInsertCashbox(form: { reset: () => void }) {
     if ($("#print_valid").prop("checked")) {
       if ($("input[name=fecha_payment]").val() != "") {
+        $(".save-payment").prop('disabled', true);
         var fecha_pay = $("input[name=fecha_payment]").val().split("-");
         this.payment.fecha_payment =
           fecha_pay[2] + "-" + fecha_pay[1] + "-" + fecha_pay[0];
