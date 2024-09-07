@@ -50,6 +50,7 @@ export class DisperseComponent {
   public fecha_p_final: any;
   public total_pagar: any;
   public sucursal: any;
+  public ref: any;
 
   overlay = false;
   public config!:any;
@@ -267,6 +268,8 @@ export class DisperseComponent {
             
             $(".legales").css("display", "none");
 
+            this.ref = parseInt(this.data_credito.cliente_id);
+
           }
         }
       },
@@ -356,7 +359,7 @@ this._creditosservice.createPrest(this.data_credito, this.fechas_pagos[0], this.
   printPage3() {
 
     $(".totalPagoI").html(this.moneda(parseFloat(this.comision) + parseFloat(this.cuota)));
-
+  
     let printContents, popupWin;
     printContents = $('#agrrement-section3').html();
     popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
